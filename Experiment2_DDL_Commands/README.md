@@ -105,123 +105,205 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Insert the below data into the Student_details table, allowing the Subject and MARKS columns to take their default values.
+
+RollNo      Name          Gender      
+----------  ------------  ----------  
+204         Samuel Black  M          
+
 
 ```sql
--- Paste your SQL code below for Question 1
+-- INSERT INTO Student_details (RollNo, Name, Gender)
+VALUES (204, 'Samuel Black', 'M');
 ```
 
 **Output:**
+<img width="1237" height="401" alt="image" src="https://github.com/user-attachments/assets/17062dd0-cc6a-4503-a160-fcbd477be62a" />
 
-![Output1](output.png)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Insert all products from Discontinued_products into Products.
 
+Table attributes are ProductID, ProductName, Price, Stock
 ```sql
--- Paste your SQL code below for Question 2
+INSERT INTO Products (ProductID, ProductName, Price, Stock)
+SELECT ProductID, ProductName, Price, Stock
+FROM Discontinued_products;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1239" height="241" alt="image" src="https://github.com/user-attachments/assets/197ad264-ba8f-42fc-9b23-4e4439e79a16" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 3
+-- CREATE TABLE ProjectAssignments (
+    AssignmentID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    ProjectID INTEGER,
+    AssignmentDate DATE NOT NULL,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1094" height="115" alt="image" src="https://github.com/user-attachments/assets/311b15c2-6a49-418a-ac4c-f361a08fb95e" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
 ```sql
--- Paste your SQL code below for Question 4
+--CREATE TABLE contacts (
+    contact_id INTEGER PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT,
+    phone TEXT NOT NULL,
+    CHECK (LENGTH(phone) >= 10)
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1337" height="152" alt="image" src="https://github.com/user-attachments/assets/78c89fe5-3a73-47ab-8b77-bcd09aa63806" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+--Write an SQL query to add two new columns, designation and net_salary, to the table Companies. The designation column should have a data type of varchar(50), and the net_salary column should have a data type of number.
 
 ```sql
--- Paste your SQL code below for Question 5
+-- ALTER TABLE Companies
+ADD COLUMN designation varchar(50);
+
+ALTER TABLE Companies
+ADD COLUMN net_salary number;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1161" height="242" alt="image" src="https://github.com/user-attachments/assets/f25045e3-68f6-4c84-a237-2e3bd0e83254" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
 
 ```sql
--- Paste your SQL code below for Question 6
+-- CREATE TABLE Department (
+    DepartmentID INTEGER PRIMARY KEY,
+    DepartmentName TEXT UNIQUE NOT NULL,
+    Location TEXT
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1352" height="132" alt="image" src="https://github.com/user-attachments/assets/71a70187-a0e5-4430-a7bc-b72436dd8a67" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Insert the following customers into the Customers table:
+
+CustomerID  Name         Address     City        ZipCode
+----------  -----------  ----------  ----------  ----------
+302         Laura Croft  456 Elm St  Seattle     98101
+303         Bruce Wayne  789 Oak St  Gotham      10001
 
 ```sql
--- Paste your SQL code below for Question 7
+-- INSERT INTO Customers (CustomerID, Name, Address, City, ZipCode)
+VALUES (302, 'Laura Croft', '456 Elm St', 'Seattle', 98101);
+
+INSERT INTO Customers (CustomerID, Name, Address, City, ZipCode)
+VALUES (303, 'Bruce Wayne', '789 Oak St', 'Gotham', 10001);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1111" height="222" alt="image" src="https://github.com/user-attachments/assets/bff34d5d-33b5-4a99-a1d0-d11c950a0fe2" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
 
 ```sql
--- Paste your SQL code below for Question 8
+-- CREATE TABLE Orders (
+    OrderID INTEGER PRIMARY KEY,
+    OrderDate DATE NOT NULL,
+    CustomerID INTEGER,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1297" height="161" alt="image" src="https://github.com/user-attachments/assets/e4287029-f0bd-4e7b-87b4-27160419b1cf" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Create a table named Customers with the following columns:
 
+CustomerID as INTEGER
+Name as TEXT
+Email as TEXT
+JoinDate as DATETIME
 ```sql
--- Paste your SQL code below for Question 9
+-- CREATE TABLE Customers (
+    CustomerID INTEGER,
+    Name TEXT,
+    Email TEXT,
+    JoinDate DATETIME
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1120" height="180" alt="image" src="https://github.com/user-attachments/assets/6794b175-2540-4430-bb1a-25ddc26747e2" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
-
+--Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
 ```sql
--- Paste your SQL code below for Question 10
+--ALTER TABLE Student_details
+ADD COLUMN MobileNumber NUMBER;
+
+ALTER TABLE Student_details
+ADD COLUMN Address VARCHAR(100);
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1241" height="236" alt="image" src="https://github.com/user-attachments/assets/09428c20-4f5d-481a-85c7-649e47fbeab6" />
+
 
 
 ## RESULT
